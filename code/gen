@@ -86,9 +86,9 @@ def generate(options, args):
         fh = float(height)
         pfun = PATTERN[pattern]
         for y in range(height):
-            fy = float(y)/fh
+            fy = (y+0.5)/fh
             for x in range(width):
-                a.append(int(round(pfun(float(x)/fw, fy) * maxval)))
+                a.append(int(round(pfun((x+0.5)/fw, fy) * maxval)))
         return a
 
     def test_rgba(size=(256,256), bitdepth=8,
